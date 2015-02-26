@@ -38,6 +38,38 @@ class: center, middle
 ```java
 public clas Ohlson {}
 ```
+---
+
+# Streams
+
+---
+
+# Funksjoner på streams
+
+* Funksjoner vi kaller på en stream er enten såkalt intermediate (mellom-funksjoner) eller terminal-funksjoner.
+
+* Mellom-funksjoner returnerer en stream slik at vi kan kalle nye funksjoner direkte, uten semikolon.
+	* Eksempel: `filter` og `map`
+	* Er lazy, og vil ikke bli kjørt før man kaller en terminal-funksjon.
+	
+* Terminal-funksjoner avsluttes, d.v.s. at de enten returnerer void eller et resultat som ikke er en stream.
+	* Eksempel: `sum` og `foreach`
+	
+* De fleste stream-funksjoner kan ta i mot et Lambda-uttrykk.
+
+---
+
+# `filter`
+
+* Funksjon som ekskluderer alle elementer som ikke matcher en gitt betingelse.
+	* Eksempel: `stream().filter(ansatt -> ansatt.alder > 40);`
+	
+* Dette kan vi videre kombinere med en terminal-funksjon, `collect`, slik:
+	`List<Ansatt> ansatteUnder40 = stream.filter(....).collect(Collectors.toList());`
+	
+---
+
+# Sortering
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
